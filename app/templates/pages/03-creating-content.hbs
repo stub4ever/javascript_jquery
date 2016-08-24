@@ -1,0 +1,38 @@
+---
+title: 03. Creating content
+url: 03-creating-content.html
+---
+
+<div class="todo">
+    <ul class="todo__card-list">
+        <li class="todo__card-item">
+            <i class="todo__card-icon"></i>
+            <div class="todo__card-content">
+                <h2 class="todo__card-title">Lorem ipsum dolor sit amet.</h2>
+                <p class="todo__card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div> <!-- .todo__card-content -->
+        </li> <!-- .todo__card-item -->
+        <li class="todo__card-item--create">
+            <div class="todo__card-content">
+                <textarea class="todo__card-textarea"></textarea>
+            </div>
+            <div class="todo__card-actions">
+                <button class="todo__card-item--add">Add New Card</button>
+                <button class="todo__card-item--save">Save Card</button>
+            </div>
+        </li> <!-- .todo__card-item -->
+    </ul>
+
+    <ul class="todo__card-list--create">
+        <li class="placeholder__list">
+            <span id="placeholder__list--create" class="placeholder__title">Add a list..</span>
+            <input type="text" class="placeholder__input">
+        </li>
+        <button class="todo__card-list--save">Save list</button>
+    </ul>
+</div>
+
+
+{{> body-script }}
+<script src="/scripts/03-creating-content.js"></script>
+
