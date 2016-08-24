@@ -1,0 +1,77 @@
+{
+  "name": "grunt-start-kit",
+  "version": "1.0.0",
+  "description": "stuboki grunt-start-kit",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stub4ever/grunt-start-kit.git"
+  },
+  "keywords": [
+    "grunt",
+    "kit",
+    "workflow",
+    "stuboki"
+  ],
+  "author": "Van Quoc Bui",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stub4ever/grunt-start-kit/issues"
+  },
+  "homepage": "https://github.com/stub4ever/grunt-start-kit#readme",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer": "^6.3.7",
+    "grunt": "^0.4.5",
+    "grunt-assemble": "^0.4.0",
+    "grunt-babel": "^6.0.0",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-combine-media-queries": "^1.0.20",
+    "grunt-concurrent": "^2.1.0",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-csslint": "^1.0.0",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-htmlmin": "^0.6.0",
+    "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-filerev": "^2.3.1",
+    "grunt-grunticon": "^2.2.3",
+    "grunt-jscs": "^3.0.1",
+    "grunt-modernizr": "^1.0.2",
+    "grunt-newer": "^1.2.0",
+    "grunt-notify": "^0.4.5",
+    "grunt-postcss": "^0.8.0",
+    "grunt-processhtml": "^0.4.0",
+    "grunt-sass": "^1.1.0",
+    "grunt-svgmin": "^3.1.0",
+    "grunt-uncss": "^0.6.0",
+    "grunt-usemin": "^3.1.1",
+    "grunt-wiredep": "^2.0.0",
+    "jit-grunt": "^0.10.0",
+    "load-grunt-configs": "^1.0.0",
+    "load-grunt-tasks": "^3.5.0",
+    "node-bourbon": "^4.2.3",
+    "time-grunt": "^1.1.0"
+  },
+  "rules": {
+    "quotes": [
+      2,
+      "single"
+    ],
+    "indent": [
+      4,
+      2
+    ]
+  },
+  "dependencies": {
+    "bourbon-neat": "^1.8.0",
+    "npm": "^3.10.5"
+  }
+}

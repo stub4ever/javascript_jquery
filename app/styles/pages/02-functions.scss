@@ -1,0 +1,198 @@
+/*------------------------------------*\
+    #02 dom
+*------------------------------------*/
+
+// Animation
+$animation-duration: .2s;
+
+// Color
+$color-1: #FF5500;
+$color-2: #f7f7f7;
+
+
+/*------------------------------------*\
+    # Global
+*------------------------------------*/
+a:focus {
+    text-decoration: none;
+}
+
+
+/*------------------------------------*\
+    # Animation
+*------------------------------------*/
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*------------------------------------*\
+    #Mixins
+*------------------------------------*/
+
+// grid
+
+@mixin tab-nav-row {
+    @include span-columns(4 of 6);
+    @include shift(1);
+    @include media($desktop){
+        @include span-columns(9 of 11);
+        @include shift(1);
+    }
+    @include media($widescreen){
+        @include span-columns(12 of 14);
+        @include shift(1);
+    }
+}
+
+@mixin gallery-item-col {
+    @include span-columns(12);
+    // 6 grids
+    @include media($tablet){
+        @include span-columns(4 of 12);
+        @include omega(2n);
+        &:nth-child(odd){
+            @include shift(2);
+        }
+    }
+    // 11 grids
+    @include media($desktop){
+        @include span-columns(3 of 11);
+        @include omega(3n);
+        &:nth-child(3n+1){
+            @include shift(1);
+        }
+    }
+    // 14 grids
+    @include media($widescreen){
+        @include span-columns(3 of 14);
+        @include omega(4n);
+        &:nth-child(4n+1){
+            @include shift(1);
+        }
+    }
+}
+
+
+
+/*------------------------------------*\
+    .tab
+*------------------------------------*/
+
+.tab {
+    float: left;
+    width: 100%;
+    height: 100%;
+
+    //.tab__navigation
+    &__navigation {
+        @include tab-nav-row;
+        border-bottom: 1px solid $color-2;
+        margin-bottom: 20px;
+    }
+    //.tab__item-link
+    &__item-link {
+        display: inline-block;
+        font-size: 20px;
+        font-weight: 600;
+        margin-right: 20px;
+        a {
+            color: black;
+            display: block;
+            padding-bottom: 3px;
+            border-bottom: 1px solid transparent;
+
+            &:hover {
+                text-decoration: none;
+                border-color: black;
+                padding-bottom: 3px;
+            }
+            &.selected {
+                padding-bottom: 3px;
+                color: $color-1;
+                border-bottom: 1.5px solid $color-1;
+            }
+        }
+    }
+    &__content {
+        width: 100%;
+        height: 100%;
+        float: left;
+
+        //display none by default
+        section {
+            display: none;
+        }
+        section.selected {
+            display: block;
+            animation: fade-in 0.5s;
+        }
+    }
+}
+
+/*------------------------------------*\
+    # .gallery-list
+*------------------------------------*/
+
+.gallery-list {
+    @include outer-container;
+
+    &--header {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        height: 100%;
+    }
+    &--footer {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    &__item {
+        @include gallery-item-col;
+        margin-bottom: 25px;
+    }
+    &__item-titel {
+        text-align: center;
+        margin: 0;
+    }
+}
+
+
+/*------------------------------------*\
+    # .user
+*------------------------------------*/
+
+.user {
+    // breakpoint
+    $badgeImg-small-bp: new-breakpoint(max-width 630px 6);
+
+    &__badge-image {
+        width: 180px;
+        min-height: 180px;
+        height: 100%;
+        background-position: center center;
+        background-size: cover;
+        border-radius: 50%;
+        border: none;
+        display: block;
+        // set width size
+        @include media($badgeImg-small-bp){
+            width: 170px;
+            min-height: 170px;
+        }
+
+    }
+}
+
+
+
+

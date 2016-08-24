@@ -1,0 +1,40 @@
+/*------------------------------------*\
+
+    #Grid Settings
+
+*------------------------------------*/
+@import "neat-helpers";
+
+// Neat Override
+
+// visual grid
+$visual-grid: false !global;
+$visual-grid-color: rgba(15,16,76, .2);
+$visual-grid-index: front;
+$visual-grid-opacity: 0.2;
+
+// Change the grid settings
+$column: 70px;
+$gutter: 20px; // space margin-right
+$grid-columns: 12; // columns size
+$max-width: 100%; // width of the grid
+
+// breakpoints
+$xs: 0px !default;
+$sm: 544px !default;
+$md: 768px !default;
+$lg: 992px !default;
+$xl: 1200px !default;
+
+
+//Cover 0 - 544px wide screen-size with 2 column grid
+$phone: new-breakpoint(max-width em($sm) 6);
+//Cover 545-768px wide screen-size with 4 column grid
+$tablet: new-breakpoint(min-width em($sm + 1) max-width em($md) 6);
+//Cover 769-991px wide screen-size with 8 column grid
+$desktop: new-breakpoint(min-width em($md + 1) max-width em($lg - 1) 11);
+//Cover 993-1199px wide screen-size with 8 column grid
+$widescreen: new-breakpoint(min-width em($lg + 1) max-width em($xl - 1) 14);
+
+//Cover 1250px and up wide screen-size. 12 column grid(default grid-size);
+$widescreen-plus: new-breakpoint(min-width em($xl));
