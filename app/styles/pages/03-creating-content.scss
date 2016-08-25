@@ -4,16 +4,75 @@
 
 *------------------------------------*/
 
-/*------------------------------------*\
-    # Animation
-*------------------------------------*/
-
 
 /*------------------------------------*\
-    # Todo
+    #Settings
 *------------------------------------*/
+
+//color
+$phantom-blue: #4BA7E6;
+$taxi-yellow: #FED460;
+$dark-navy: #1F253B;
+$blind-grey: #AFB5C6;
+
+
+$background-color: $phantom-blue;ß
+
+
 
 
 /*------------------------------------*\
-    # Placeholder
+    #Tools
 *------------------------------------*/
+
+/*------------------------------------*\
+    #Components
+*------------------------------------*/
+
+// #Todo
+
+.todo {}
+    .todo__card-list{}
+        // Card-list create container
+        .todo__card-list--create{}
+        // Cardlist save action
+        .todo__card-list--save{}
+
+    .todo__card-item{}
+        // Card-item create container
+        .todo__card-item--create{}
+
+    .todo__card-content{}
+
+    .todo__card-title{}
+
+    .todo__card-description{}
+
+    .todo__card-textarea{}
+
+    // card-actions container
+    .todo__card-actions{}
+
+        .todo__card-actions--add{}
+        .todo__card-actions--save{}
+
+
+// #PlaceHolder
+
+.placeholder {}
+
+    .placeholder__list{}
+
+        .placeholder__list--create{}
+
+    .placeholder__title{}
+
+    .placeholder__input{}
+
+
+
+
+
+
+
+
