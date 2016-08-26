@@ -23,17 +23,6 @@ $background-color: $phantom-blue;
     #Tools
 *------------------------------------*/
 
-// #Animation
-
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 // #Mixins
 
 @mixin flex-center-center {
@@ -59,7 +48,6 @@ $background-color: $phantom-blue;
         padding: 20px;
         list-style-type: none;
         background: #37b1ff;
-        animiation: fade-in 0.3s;
     }
 
     // Create Card-list container
@@ -68,7 +56,7 @@ $background-color: $phantom-blue;
         border: none;
 
         // When click add new list hide placeholder-link
-        &.editing .placeholder__link {
+        &.editing .todo__list--add {
             display: none;
         }
 
@@ -76,6 +64,7 @@ $background-color: $phantom-blue;
         &.editing .placeholder__tittle-input,
         &.editing .todo__card-list--save {
             display: block;
+            animation: fade-in 0.1s;
         }
     }
         // By default hide save action button
@@ -99,8 +88,10 @@ $background-color: $phantom-blue;
             color: $phantom-blue;
             font-weight: 600;
             font-size: 14px;
+
             // By default hide input placerholder
             display: none;
+
             &::-webkit-input-placeholder {
                color: $phantom-blue;
                opacity: 0.7;
@@ -115,7 +106,6 @@ $background-color: $phantom-blue;
         padding: 10px;
         height: auto;
         margin-bottom: 15px;
-        animation: fade-in 0.3s;
     }
 
     // Card-item create container
@@ -130,10 +120,12 @@ $background-color: $phantom-blue;
         &.editing .placeholder__tittle-input,
         &.editing .placeholder__description-area {
             display: block;
+            animation: fade-in 0.1s;
         }
 
         &.editing .todo__card-item--save {
             display: block;
+            animation: fade-in 0.1s;
         }
     }
         // By default hide action save button
