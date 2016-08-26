@@ -67,12 +67,12 @@ $background-color: $phantom-blue;
         @extend .todo__card-list;
         border: none;
 
-        // When Creating list hide placeholder-link
+        // When click add new list hide placeholder-link
         &.editing .placeholder__link {
             display: none;
         }
 
-        // show placeholder tittle input + show action save button
+        // when click add new list show placeholder tittle input + show action save button
         &.editing .placeholder__tittle-input,
         &.editing .todo__card-list--save {
             display: block;
