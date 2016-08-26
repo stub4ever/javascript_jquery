@@ -66,9 +66,22 @@ $background-color: $phantom-blue;
     .todo__card-list--create{
         @extend .todo__card-list;
         border: none;
+
+        // When Creating list hide placeholder-link
+        &.editing .placeholder__link {
+            display: none;
+        }
+
+        // show placeholder tittle input + show action save button
+        &.editing .placeholder__tittle-input,
+        &.editing .todo__card-list--save {
+            display: block;
+        }
     }
-        // Cardlist save action
-        .todo__card-list--save{}
+        // By default hide save action button
+        .todo__card-list--save{
+            display: none;
+        }
 
         .todo__card-list__tittle {
             color: white;
@@ -86,6 +99,8 @@ $background-color: $phantom-blue;
             color: $phantom-blue;
             font-weight: 600;
             font-size: 14px;
+            // By default hide input placerholder
+            display: none;
             &::-webkit-input-placeholder {
                color: $phantom-blue;
                opacity: 0.7;
@@ -108,9 +123,25 @@ $background-color: $phantom-blue;
     // Card-item create container
     .todo__card-item--create{
 
+        // When click add new card-item hide this button
+        &.editing .todo__card-item--add {
+            display: none;
+        }
+
+        //when click add new card-item show placeholder,- title input & description area + action save button
+        &.editing .placeholder__tittle-input,
+        &.editing .placeholder__description-area {
+            display: block;
+        }
+
+        &.editing .todo__card-item--save {
+            display: block;
+        }
     }
-        .todo__card-item--add{}
-        .todo__card-item--save{}
+        // By default hide action save button
+        .todo__card-item--save{
+            display: none;
+        }
 
     // card-content container
     .todo__card-content {
@@ -122,6 +153,7 @@ $background-color: $phantom-blue;
             color: $dark-navy;
             font-weight: 600;
             font-size: 12px;
+            // By default hide this element
             display: none;
             &::-webkit-input-placeholder {
                color: $phantom-blue;
@@ -133,6 +165,7 @@ $background-color: $phantom-blue;
             border-top: solid 2px $phantom-blue;
             color: $dark-navy;
             font-size: 10px;
+            // By default hide this element
             display: none;
             &:focus {
                 outline: none;
