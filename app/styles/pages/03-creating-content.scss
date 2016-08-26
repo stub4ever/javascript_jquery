@@ -169,14 +169,14 @@ $background-color: $phantom-blue;
 
 .placeholder {}
 
-    .placeholder__list-tittle{
+    .placeholder__link{
         cursor:pointer;
         text-align: center;
         color: white;
         font-weight: 600;
         transition: all 0.3s;
         &:hover {
-            opacity: 0.8;
+            color: $taxi-yellow;
         }
     }
 
