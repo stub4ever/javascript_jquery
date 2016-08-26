@@ -16,14 +16,31 @@ $dark-navy: #1F253B;
 $blind-grey: #AFB5C6;
 
 
-$background-color: $phantom-blue;ß
-
-
+$background-color: $phantom-blue;
 
 
 /*------------------------------------*\
     #Tools
 *------------------------------------*/
+
+// #Animation
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+// #Mixins
+
+@mixin flex-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /*------------------------------------*\
     #Components
@@ -31,44 +48,178 @@ $background-color: $phantom-blue;ß
 
 // #Todo
 
-.todo {}
-    .todo__card-list{}
-        // Card-list create container
-        .todo__card-list--create{}
+.todo {
+    max-width: 320px;
+    width: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+}
+    .todo__card-list {
+        padding: 20px;
+        list-style-type: none;
+        background: #37b1ff;
+        animiation: fade-in 0.3s;
+    }
+    // Create Card-list container
+    .todo__card-list--create{
+        @extend .todo__card-list;
+        border: none;
+    }
         // Cardlist save action
         .todo__card-list--save{}
 
-    .todo__card-item{}
-        // Card-item create container
-        .todo__card-item--create{}
+        .todo__card-list__tittle {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+    // todo placeholders container
+    .todo__placeholder-list {
+         @include flex-center-center;
 
-    .todo__card-content{}
+        .placeholder__tittle-input {
+            color: $phantom-blue;
+            font-weight: 600;
+            font-size: 14px;
+            &::-webkit-input-placeholder {
+               color: $phantom-blue;
+               opacity: 0.7;
+            }
+         }
+    }
+        .todo__placeholder-list--create{}
 
-    .todo__card-title{}
 
-    .todo__card-description{}
+    .todo__card-item {
+        display: block;
+        background: white;
+        border-radius: 2.5px;
+        padding: 10px;
+        height: auto;
+        margin-bottom: 15px;
+        animation: fade-in 0.3s;
+    }
+
+    // Card-item create container
+    .todo__card-item--create{
+
+    }
+        .todo__card-item--add{}
+        .todo__card-item--save{}
+
+    // card-content container
+    .todo__card-content {
+        display: flex;
+        flex-direction: column;
+        .placeholder__tittle-input{
+            border-radius: 0;
+            margin-bottom: 0;
+            color: $dark-navy;
+            font-weight: 600;
+            font-size: 12px;
+            display: none;
+            &::-webkit-input-placeholder {
+               color: $phantom-blue;
+               opacity: 0.7;
+            }
+        }
+        .placeholder__description-area {
+            border-top: solid 2px $phantom-blue;
+            color: $dark-navy;
+            font-size: 10px;
+            display: none;
+            &:focus {
+                outline: none;
+            }
+            &::-webkit-input-placeholder {
+               color: $phantom-blue;
+               opacity: 0.7;
+            }
+        }
+    }
+
+    .todo__card-tittle {
+        color: $dark-navy;
+        font-size: 12px;
+        font-weight: 600;
+        margin: 0;
+        padding-bottom: 5px;
+    }
+    .todo__card-description{
+        color: $dark-navy;
+        font-size: 10px;
+        opacity: 0.8;
+        margin: 0;
+    }
 
     .todo__card-textarea{}
 
     // card-actions container
     .todo__card-actions{}
 
-        .todo__card-actions--add{}
-        .todo__card-actions--save{}
-
 
 // #PlaceHolder
 
 .placeholder {}
+    .placeholder__list-tittle{
+        cursor:pointer;
+        text-align: center;
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
 
-    .placeholder__list{}
+    .placeholder__tittle-input{
+        width: 100%;
+        height: 45px;
+        padding: 0 10px;
+        border: 0;
+        border-radius: 2.5px;
+        margin-bottom: 15px;
+        &:focus {
+            outline: none;
+        }
+    }
+    .placeholder__description-area {
+        border: none;
+        width: 100%;
+        border: none;
+        margin: 0;
+        resize: none;
+        padding: 10px;
+        margin-bottom: 15px;
+        &:focus {
+            outline: none;
+        }
+    }
 
-        .placeholder__list--create{}
 
-    .placeholder__title{}
+// #Button
 
-    .placeholder__input{}
+.btn {}
 
+    .btn__action {
+        padding: 10px;
+        opacity: 1;
+        background: white;
+        color: $blind-grey;
+        font-size: 10px;
+        font-weight: 600;
+        transition: all 0.3s;
+        border-radius: 2.5px;
+
+        &:hover {
+            background: $taxi-yellow;
+            color: $phantom-blue;
+            box-shadow: inset 0 -0.5px 0 $dark-navy;
+
+        }
+    }
 
 
 
