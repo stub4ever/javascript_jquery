@@ -54,12 +54,14 @@ $background-color: $phantom-blue;
     min-height: 100%;
     margin: 0 auto;
 }
+
     .todo__card-list {
         padding: 20px;
         list-style-type: none;
         background: #37b1ff;
         animiation: fade-in 0.3s;
     }
+
     // Create Card-list container
     .todo__card-list--create{
         @extend .todo__card-list;
@@ -75,6 +77,7 @@ $background-color: $phantom-blue;
             text-transform: uppercase;
             margin-bottom: 10px;
         }
+
     // todo placeholders container
     .todo__placeholder-list {
          @include flex-center-center;
@@ -89,8 +92,8 @@ $background-color: $phantom-blue;
             }
          }
     }
-        .todo__placeholder-list--create{}
 
+        #todo__placeholder-list--create{}
 
     .todo__card-item {
         display: block;
@@ -125,6 +128,7 @@ $background-color: $phantom-blue;
                opacity: 0.7;
             }
         }
+
         .placeholder__description-area {
             border-top: solid 2px $phantom-blue;
             color: $dark-navy;
@@ -147,6 +151,7 @@ $background-color: $phantom-blue;
         margin: 0;
         padding-bottom: 5px;
     }
+
     .todo__card-description{
         color: $dark-navy;
         font-size: 10px;
@@ -163,6 +168,7 @@ $background-color: $phantom-blue;
 // #PlaceHolder
 
 .placeholder {}
+
     .placeholder__list-tittle{
         cursor:pointer;
         text-align: center;
@@ -185,6 +191,7 @@ $background-color: $phantom-blue;
             outline: none;
         }
     }
+
     .placeholder__description-area {
         border: none;
         width: 100%;
