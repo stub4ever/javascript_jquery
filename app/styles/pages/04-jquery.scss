@@ -13,6 +13,7 @@ body {
     height: 100%;
 }
 
+
 /*------------------------------------*\
     #Tools
 *------------------------------------*/
@@ -23,6 +24,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+// # Animation
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+//# helpers
+
+.is--displayed {
+    display: block;
+    animation: fadeIn 0.3s;
 }
 
 /*------------------------------------*\
@@ -37,7 +57,9 @@ body {
     margin-bottom: 20px;
     padding: 20px;
 }
+
     .block.selected {
+        animation: fadeIn 0.3s;
         background: black;
         color: white;
         font-weight: 600;
@@ -46,32 +68,38 @@ body {
     .block p {
         @include flex-center-center;
         flex-direction: column;
-        width: 395px;
+        cursor: pointer;
+        max-width: 395px;
         margin: 0 auto;
     }
 
     .block p span {
         padding-top: 10px;
         align-self: flex-end;
+        display: none;
     }
+
+    .block p span.name.is--displayed{
+        @extend .is--displayed;
+    }
+
 
 .block:nth-of-type(2) {
     @extend .block;
 }
+
     .block:nth-of-type(2).selected {
+        animation: fadeIn 0.3s;
         background: black;
         color: white;
         font-weight: 600;
-    }
-    .block:nth-of-type(2) h1 {
-        text-align: center;
     }
 
     .block:nth-of-type(2) .my-roadmap-list {
         display: flex;
         flex-direction: column;
         list-style-type: none;
-         width: 395px;
+        width: 345px;
         margin: 0 auto;
         padding: 0;
     }
