@@ -1,7 +1,10 @@
 'use strict';
 
-(function(){
+(function($){
+    var block = $('.block');
 
 
+    firstBlock.addClass('selected');
 
-}());
+
+}(jQuery)); // = $

@@ -31,43 +31,43 @@ body {
 
 // # Home
 
-.first-block {
+.block {
     display: block;
     width: 100%;
     margin-bottom: 20px;
     padding: 20px;
 }
-    .first-block.selected {
+    .block.selected {
         background: black;
         color: white;
         font-weight: 600;
     }
 
-    .first-block p {
+    .block p {
         @include flex-center-center;
         flex-direction: column;
         width: 395px;
         margin: 0 auto;
     }
 
-    .first-block p span {
+    .block p span {
         padding-top: 10px;
         align-self: flex-end;
     }
 
-.second-block {
-    @extend .first-block;
+.block:nth-of-type(2) {
+    @extend .block;
 }
-    .second-block.selected {
+    .block:nth-of-type(2).selected {
         background: black;
         color: white;
         font-weight: 600;
     }
-    .second-block h1 {
+    .block:nth-of-type(2) h1 {
         text-align: center;
     }
 
-    .second-block .my-roadmap-list {
+    .block:nth-of-type(2) .my-roadmap-list {
         display: flex;
         flex-direction: column;
         list-style-type: none;
