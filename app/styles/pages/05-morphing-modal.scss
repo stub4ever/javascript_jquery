@@ -1,0 +1,70 @@
+/*------------------------------------*\
+
+    # 05 Morphing Modal
+
+*------------------------------------*/
+
+
+/*------------------------------------*\
+    #Base
+*------------------------------------*/
+
+/*------------------------------------*\
+    #Tools
+*------------------------------------*/
+
+// #Mixins
+
+@mixin flex-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+// # Animation
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*------------------------------------*\
+    # Components
+*------------------------------------*/
+
+// # Hero Intro
+.hero-intro {
+
+}
+
+    .hero-intro__tittle {}
+    .hero-intro__sub-tittle {}
+    .hero-intro__text {}
+
+
+// # Morph Modal
+.morph-modal{
+
+}
+    .morph-modal--open {}
+    .morph-modal--close {}
+    .morph-modal__background {}
+    .morph-modal__content {}
+    .morph-modal__text {}
+
+
+// # Button
+.btn {
+
+}
+
+    .btn__action{}
+
+
+
+

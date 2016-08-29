@@ -1,0 +1,37 @@
+---
+title: 05. Morphing Modal
+url: 05-morphing-modal.html
+---
+
+<main class="hero-intro">
+    <h1 class="hero-intro__tittle">
+        Lorem ipsum dolor sit amet, consectetur
+    </h1>
+    <h2 class="hero-intro__sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, sunt.</h2>
+    <p class="hero-intro__text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed consequatur quas dolor, voluptate cupiditate id vero, alias nemo cumque repellendus quaerat quae? Voluptate fugiat, officiis dolore optio. Rerum quos perspiciatis alias et voluptate totam commodi?
+    </p>
+
+    <button id="modal-1" class="btn__action morph-modal--open">Check</button>
+</main>
+
+<div id="modal-1" class="morph-modal">
+    <span class="morph-modal__background"></span>
+    <div class="morph-modal__content">
+        <p class="morph-modal__text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quam molestiae similique ea dolorem deleniti amet beatae recusandae eveniet minima sint, ducimus impedit a. Natus autem delectus ex dolorum nemo!
+        </p>
+    </div>
+    <button class="btn__action morph-modal--close">Check</button>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script> // include jquery file fallback if jquery google link doesnt find
+    if( !window.jQuery ) document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>');
+</script>
+{{> body-script }}
+
+<script src="/scripts/05-morphing-modal.js"></script>
+
+
