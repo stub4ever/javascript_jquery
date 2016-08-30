@@ -39,31 +39,165 @@
 
 // # Hero Intro
 .hero-intro {
-
+    height: calc(100% - 86.5px);
+    padding: 40px;
+    max-width: 100%;
+    display: block;
+    text-align: center;
 }
 
-    .hero-intro__tittle {}
-    .hero-intro__sub-tittle {}
-    .hero-intro__text {}
+    .hero-intro__tittle {
+        font-weight: 600;
+    }
+
+    .hero-intro__sub-tittle {
+        font-size: 20px;
+    }
 
 
 // # Morph Modal
-.morph-modal{
 
-}
-    .morph-modal--open {}
-    .morph-modal--close {}
-    .morph-modal__background {}
-    .morph-modal__content {}
-    .morph-modal__text {}
-
-
-// # Button
-.btn {
-
+.morph-modal {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
+    // by default invisble
+    opacity: 0;
+    visibility: hidden;
 }
 
-    .btn__action{}
+    // morph modal open trigger
+    .morph-modal--open {
+        &.morph-modal {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    // morph modal close
+    .morph-modal--close {
+        &.morph-modal__content {
+            opacity: 0;
+            transition: opacity .2s;
+            z-index: 2;
+        }
+    }
+
+    // visible  __close-btn + __content
+    .morph-modal--visible {
+        &.morph-modal__content {
+            opacity: 1;
+        }
+        &.morph-modal--close {
+            opacity: 1;
+        }
+    }
+
+    // Hidden  __close-btn + __content
+    %morph-modal--hidden {
+        opacity: 0;
+        transition: opacity .2s;
+        z-index: 2;
+    }
+
+    // Modal block for __btn & __background
+    %morph-modal__block {
+        display: inline-block;
+        background-color: black;
+        height: 35px;
+        line-height: 35px;
+        width: 100px;
+    }
+
+    .morph-modal__background {
+        position: fixed;
+        z-index: 1;
+        top: 0; left: 0;
+        transition: transform .3s;
+        @extend %morph-modal__block;
+    }
+
+    .morph-modal__content {
+        position: relative;
+        height: 100%;
+        overflow: auto;
+        padding: 40px 20%;
+        @extend %morph-modal--hidden;
+    }
+
+    .morph-modal__text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        color: white;
+        opacity: 0.8;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .morph-modal__btn {
+        font-size: 10px;
+        font-weight: 600;
+        margin: 0 auto;
+        text-transform: uppercase;
+        color: white;
+        opacity: 1;
+        transition: all 0.3s;
+        @extend %morph-modal__block;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
+    .morph-modal__btn-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        /* replace text with image */
+        height: 45px;
+        width: 45px;
+        background: white;
+        border-radius: 50%;
+        border: none;
+        text-indent: 100%;
+        overflow: hidden;
+        color: transparent;
+        white-space: nowrap;
+        transition: background .2s; // animation background
+        @extend %morph-modal--hidden;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &::before, &::after {
+            /* this is the 'X' arrow */
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 2px;
+            width: 24px;
+            background: black;
+        }
+        &::before {
+            // diagonal line
+            transform: translate(-50%) rotate(45deg);
+        }
+        &::after {
+            // diagonal line
+            transform: translate(-50%) rotate(-45deg);
+        }
+    }
+
+
+
+
 
 
 
