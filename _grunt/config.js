@@ -12,7 +12,7 @@ module.exports = {
     /*----------------------------------( port vars )----------------------------------*/
 
     port : {
-        host: 'localhost',  // <%=config.port.host%>
+        host: 'js-playgroud.local',  // <%=config.port.host%>
         dev: 8000,          // <%=config.port.dev%>
         dist: 9000,         // <%=config.port.dist%>
     },

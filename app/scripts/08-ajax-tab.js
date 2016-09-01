@@ -3,7 +3,7 @@
 (function(){
 
     function updateTabs(e, navigation, content){
-        var queryVal = 'section' + e.target.hash; //li + '#id';
+        var docName = e.target.hash.replace('#', '');  // replace # with empty string
         e.preventDefault();
 
         if (!e.target.classList.contains('selected')) { // e.target.classList.contains('selected') === false
@@ -11,12 +11,34 @@
             navigation.querySelector('a.selected').classList.remove('selected'); // remove current class selected
             e.target.classList.add('selected'); // add class selected
 
-            // Update content
-            content.querySelector('section.selected').classList.remove('selected');
-            content.querySelector(queryVal).classList.add('selected');
-
-            return queryVal; //access variable outside this function scope
+            //update tab content
+            content.classList.add('loading'); // add class loading -> give user an better idea whats happening
+            setTimeout(function(){ // call ajax after 1s delay // able to test display loading
+                myAjaxCall(content, docName);
+            }, 1000);
         }
+    }
+
+    function myAjaxCall(content, docName){ // .tab__content + name of file
+        var xhr = new XMLHttpRequest();
+
+        xhr.onload = function(){ //XMLHttpRequest  has own events detect onload -> fired when the server respond
+
+            content.classList.remove('loading');
+            if( xhr.status === 200) { // check server status
+                // replace the tab content with new content
+                content.innerHTML = xhr.responseText;
+            } else {
+                // show error message
+                content.innerHTML = 'There was an error';
+            }
+        }
+
+        // Prepare Request by using open method
+        xhr.open('GET', docName+ '.html');// get -> retrieve new gallery from html file
+
+        // Send request to the server
+        xhr.send();
     }
 
     var tabsContainerList = document.getElementsByClassName('tab'); // take every classes 'tab'
@@ -33,12 +55,10 @@
             tabNavigation.addEventListener('click', function(event){
                 // Show the new content
                 if (event.target.tagName.toLowerCase() === 'a'){ // return when 'a' is string
-                    var functionVar = updateTabs(event, tabNavigation, tabContent); //insert variables in the parameter
-                    console.log(functionVar); // return query value of the function 'updateTabs'
+                    updateTabs(event, tabNavigation, tabContent); //insert variables in the parameter
                 }
             });
         }(i));
     }
-    console.log(TotalTabLinks); // return total number of tablinks
 
 }()); // = $
