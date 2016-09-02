@@ -3,6 +3,8 @@
 (function($){
     var modalTrigger = $('.morph-modal__btn');
     var modalWindow = $('.morph-modal');
+    var modalBg = modalWindow.children('.morph-modal__background');
+    var modalContent = modalWindow.children('.morph-modal__content');
 
     function getElementPosition(trigger){
         var top = trigger.offset().top - $(window).scrollTop();  // subract window document and set vertical scroll that matched element
@@ -31,45 +33,73 @@
         event.preventDefault();
         var selectedModalTrigger = $(this);
         //retrieve href of trigger
-        var modalId = selectedModalTrigger.attr('href');
-        var selectedModalWindow = modalWindow.filter(modalId); // select morph-modal with the filter ID
-        var selectedMorphBg = selectedModalWindow.children('.morph-modal__background');
+        var modalId = selectedModalTrigger.attr('href').replace('#', '');
+
+        // remove this 2 lines, use 1 modal with different content -> retrieve from ajax
+        // var selectedModalWindow = modalWindow.filter(modalId); // select morph-modal with the filter ID
+        // var selectedMorphBg = selectedModalWindow.children('.morph-modal__background');
+
         //show the modal window
-        selectedModalWindow.addClass('morph-modal--open');
+        modalWindow.addClass('morph-modal--open');
 
         //retrieve the trigger position
         var triggerPosition = getElementPosition(selectedModalTrigger); // return array back
 
         // retrieve scale value
-        var scaleValues = evaluateScale(selectedMorphBg, triggerPosition);
+        var scaleValues = evaluateScale(modalBg, triggerPosition);
 
-        selectedMorphBg.css({
+        modalBg.css({
             'top': triggerPosition[0] + 'px',
             'left': triggerPosition[1] + 'px',
             'transform': 'scaleX(' + scaleValues[1] + ') scaleY(' + scaleValues[0] + ')',
         }).one('transitionend', function(){ // listen the transition event just once
-            //wait for the transition to be over -> show modal content
-            selectedModalWindow.children('.morph-modal__content').addClass('morph-modal--visible');
-            selectedModalWindow.children('.morph-modal__btn-close').addClass('morph-modal--visible');
+
+            // modalContent.load(modalId+'.html', function(response, status){
+            //  if( status == 'error' ) {
+            //      modalContent.html('<p class="error">Sorry there was an error.</p>');
+            //  }
+            // modalContent.addClass('morph-modal--visible');
+            // modalWindow.children('.morph-modal__btn-close').addClass('morph-modal--visible');
+            // });
+
+            // when the content loaded => show content
+            $.ajax({
+                method: 'GET', // define method POST or GET for request
+                url: modalId+'.html', // document url what handle the request
+                beforeSend: function() { // before the request send -> show loading
+                    modalWindow.addClass('loading');
+                },
+                success: function(data) { // retrieve content(data)
+                    modalContent.html(data);
+                },
+                error: function() {
+                    modalContent.html('<p class="error">Sorry there was an error.</p>');
+                },
+                complete: function() {
+                    modalWindow.removeClass('loading');
+                    modalContent.addClass('morph-modal--visible');
+                    modalWindow.children('.morph-modal__btn-close').addClass('morph-modal--visible');
+                }
+            });
         });
     });
 
     //listen to the click on the close-modal buttons
     modalWindow.on('click', '.morph-modal__btn-close', function(event){
-        //get the modal window and morphing background
-        var selectedModalWindow = $(this).parent('.morph-modal'); // remeber: this refers to the element that just clicked (close-modal)
-        var selectedMorphBg = selectedModalWindow.children('.morph-modal__background');
+        // remove this 2 lines, use 1 modal with different content -> retrieve from ajax
+        // var selectedModalWindow = $(this).parent('.morph-modal'); // remeber: this refers to the element that just clicked (close-modal)
+        // var modalBg = selectedModalWindow.children('.morph-modal__background');
 
         //hide the modal content
-        selectedModalWindow.children('.morph-modal__btn-close').removeClass('morph-modal--visible');
-        selectedModalWindow.children('.morph-modal__content').removeClass('morph-modal--visible');
+        modalWindow.children('.morph-modal__btn-close').removeClass('morph-modal--visible');
+        modalContent.removeClass('morph-modal--visible');
 
         //scaleDown modal background
-        selectedMorphBg.css({
+        modalBg.css({
             'transform': 'scaleX(1) scaleY(1)' //remeber 1 is the default value for the css scale tranfrom
         }).one('transitionend', function(){
             //wait for the transition to be over -> hide modal window
-            selectedModalWindow.removeClass('morph-modal--open');
+            modalWindow.removeClass('morph-modal--open');
         });
     });
 
