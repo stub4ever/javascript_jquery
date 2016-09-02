@@ -11,6 +11,7 @@
 module.exports.tasks = {
 
     modernizr: {
+
         dist: {
             devFile: '<%=config.js.srcDir%>/lib/modernizr/modernizr.js',
             dest: '<%=config.js.tempDir%>/lib/modernizr.min.js',
@@ -18,8 +19,10 @@ module.exports.tasks = {
                 'src': [
                     ['<%=config.js.tempDevConcatFile%>'],
                     ['<%=config.css.tempDevConcatFile%>']
-                ]
+                ],
             },
+            matchCommunityTests: true, // Set this to true to auto-detect non-core tests
+            tests: [ 'csspointerevents' ],  // Manually add tests here
             uglify: true,
             parseFiles: true
         }
