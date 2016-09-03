@@ -13,6 +13,7 @@
         this.selectedSlide = 0; //store the index of the visible slide at 0 => the first slide is by default visible
         this.prevSelectedSlide = 0; // also store the index at 0
         this.intervalId; //store interval id
+        this.hovered = false; // check if mouse is over the slide element
 
         this.bindEvents(); // bind all Listener events
         this.initAutoPlay();
@@ -53,12 +54,12 @@
 
         //stop autoplay while hovering over the slider
         this.element.addEventListener('mouseenter', function(){
-            self.hover = true;
+            self.hovered = true;
             clearInterval(self.intervalId);
         });
         //initialize autoplay when leaving the slider
         this.element.addEventListener('mouseleave', function(){
-            self.hover = false;
+            self.hovered = false;
             self.initAutoPlay();
         });
     }
