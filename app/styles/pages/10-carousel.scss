@@ -68,10 +68,20 @@ ul, ol {
         transform: translateX(100%); // hide on the vertical right(X) of screen
         transition: transform .5s;
 
-        // when item is selected -> show slide-item with animation from right screen
+        // when item is selected -> show __slide-item
         &.selected {
             z-index: 1;
             transform: translateX(0);
+        }
+
+        // __slide-item move from the left screen
+        &.move-left {
+            transform: translateX(-100%);
+        }
+
+        // __slide-item is visible
+        &.visible {
+            z-index: 2;
         }
     }
 
@@ -136,39 +146,30 @@ ul, ol {
 
         .carousel__dot {
             // give dot spaces
-            display: inline-block;
-            float: left;
-            margin-right: 15px;
-            color: transparent;
+            &--space {
+                display: inline-block;
+                float: left;
+                margin-right: 15px;
+                &:last-child {
+                    margin-right: 0px;
+                }
+            }
+            display: block;
             height: 14px;
             width: 14px;
-            opacity: 0.6;
-            transition: opacity .3s;
+            border: 1px solid #FFF;
+            border-radius: 50%;
+            /* text replace */
+            overflow: hidden;
+            white-space: nowrap;
+            text-indent: 100%;
+            color: transparent;
+            transition: background-color .3s;
 
-            &:last-child {
-                margin-right: 0px;
-            }
             &:hover {
                 color: transparent;
-                opacity: 1;
-            }
-
-            &::after {
-                // styling dot
-                content: '';
-                position: absolute;
-                top: 0;
-                display: block;
-                height: 14px;
-                width: 14px;
-                border: 1.5px solid #FFF;
                 border-radius: 50%;
-                /* text replace */
-                overflow: hidden;
-                text-indent: 100%;
                 opacity: 1;
-                color: transparent;
-                transition: background-color .3s;
             }
 
             &.selected {
