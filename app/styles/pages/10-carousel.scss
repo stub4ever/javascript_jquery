@@ -9,6 +9,12 @@
     #Base
 *------------------------------------*/
 
+ul, ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 /*------------------------------------*\
     #Tools
 *------------------------------------*/
@@ -32,4 +38,162 @@
         opacity: 1;
     }
 }
+
+
+/*------------------------------------*\
+    #Components
+*------------------------------------*/
+
+// # Carousel
+
+.carousel {
+    position: relative;
+    height: 400px;
+    overflow: hidden; // hide scrollbar
+}
+
+    // carousel container of __slide-item selection
+    .carousel__slides {
+        position: relative;
+        height: 100%;
+        background-color: black;
+    }
+
+    .carousel__slide-item {
+        display: table;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        transform: translateX(100%); // hide on the vertical right(X) of screen
+        transition: transform .5s;
+
+        // when item is selected -> show slide-item with animation from right screen
+        &.selected {
+            z-index: 1;
+            transform: translateX(0);
+        }
+    }
+
+        .carousel__slide-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: no-repeat center center;
+            background-size: cover;
+        }
+
+        // Carousel container inside __slide-item
+        .carousel__content {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            color: #FFF;
+            -webkit-font-smoothing: antialiased;  // smooth pixels only on big font-size
+        }
+
+    // Navigation with arrow next or prev
+    .carousel__navigation {}
+
+        .carousel__arrow-prev {
+            position: absolute;
+            z-index: 2;
+            top: 50%; left: 10px;
+            transform: translateY(-50%); // vertical
+            height: 48px;
+            width: 48px;
+
+            // text replace
+            overflow: hidden;
+            white-space: nowrap; // no scrolling provided
+            text-indent: 100%; // hide font-size
+            color: transparent; // color transparant
+            background: url(../images/icon-arrow.svg) no-repeat center center;
+            opacity: .6;
+            transition: opacity .3s, visibility .3s;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .carousel__arrow-next {
+            @extend .carousel__arrow-prev;
+            transform: translateY(-50%) rotate(180deg); // vertical
+            left: auto; right: 10px;
+        }
+
+    // Dots Navigation with dots selection
+    .carousel__dots-navigation {
+        position: absolute;
+        z-index: 2;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%); // horizontal left
+
+    }
+
+        .carousel__dot {
+            // give dot spaces
+            display: inline-block;
+            float: left;
+            margin-right: 15px;
+            color: transparent;
+            height: 14px;
+            width: 14px;
+            opacity: 0.6;
+            transition: opacity .3s;
+
+            &:last-child {
+                margin-right: 0px;
+            }
+            &:hover {
+                color: transparent;
+                opacity: 1;
+            }
+
+            &::after {
+                // styling dot
+                content: '';
+                position: absolute;
+                top: 0;
+                display: block;
+                height: 14px;
+                width: 14px;
+                border: 1.5px solid #FFF;
+                border-radius: 50%;
+                /* text replace */
+                overflow: hidden;
+                text-indent: 100%;
+                opacity: 1;
+                color: transparent;
+                transition: background-color .3s;
+            }
+
+            &.selected {
+                background-color: #FFF;
+                border-radius: 50%;
+                opacity: 1;
+            }
+        }
+
+
+// # Hero
+
+.hero {}
+
+    // Title of __slide-item
+    .hero__tittle {
+        margin-top: 0;
+        font-size: 3.5rem;
+    }
+
+    // Description of __slide-item
+    .hero__description {}
+
+
+
+
+
 

@@ -4,11 +4,60 @@ url: 10-carousel.html
 ---
 
 
+<div class="carousel">
+    <div class="carousel__slides">
+        <div class="carousel__slide-item selected">
+             <img alt="" class="carousel__slide-background" style="background-image: url('https://hd.unsplash.com/reserve/B6PfiQ8QoSzmsZYOCkSB__DSC0530-1.jpg');">
+            <div class="carousel__content">
+                <h2 class="hero__tittle">Slide #1 title</h2>
+                <p class="hero__description">Lorem ipsum dolor sit amet. </p>
+            </div>
+        </div>
 
+        <div class="carousel__slide-item">
+            <img alt="" class="carousel__slide-background" style="background-image: url('https://hd.unsplash.com/photo-1431794062232-2a99a5431c6c');">
+            <div class="carousel__content">
+                <h2 class="hero__tittle">Slide #2 title</h2>
+                <p class="hero__description">Lorem ipsum dolor sit amet. </p>
+            </div>
+        </div>
+
+        <div class="carousel__slide-item">
+             <img alt="" class="carousel__slide-background" style="background-image: url('https://hd.unsplash.com/photo-1440658172029-9d9e5cdc127c');">
+            <div class="carousel__content">
+                <h2 class="hero__tittle">Slide #3 title</h2>
+                <p class="hero__description">Lorem ipsum dolor sit amet. </p>
+            </div>
+        </div>
+
+        <div class="carousel__slide-item">
+            <img alt="" class="carousel__slide-background" style="background-image: url('https://hd.unsplash.com/photo-1465322625814-2c183694898c');">
+            <div class="carousel__content">
+                <h2 class="hero__tittle">Slide #4 title</h2>
+                <p class="hero__description">Lorem ipsum dolor sit amet. </p>
+            </div>
+        </div>
+    </div>
+
+    <nav class="carousel__navigation">
+        <a href="#0" class="carousel__arrow-next">Next</a>
+        <a href="#0" class="carousel__arrow-prev">Prev</a>
+    </nav>
+
+    <nav class="carousel__dots-navigation">
+        <a href="#0" class="carousel__dot selected">1</a>
+        <a href="#0" class="carousel__dot">2</a>
+        <a href="#0" class="carousel__dot">3</a>
+        <a href="#0" class="carousel__dot">4</a>
+    </nav>
+</div>
+
+
+<!--
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script> // include jquery file fallback if jquery google link doesnt find
     if( !window.jQuery ) document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>');
-</script>
+</script> -->
 {{> body-script }}
 
 <script src="/scripts/10-carousel.js"></script>
