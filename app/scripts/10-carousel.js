@@ -95,7 +95,7 @@
             }
         }
         this.slides[this.prevSelectedSlide].classList.add('visible'); // add prev selectedSlide visible class to fix bug
-        if( !this.hover ) this.initAutoPlay(); // if hover is false return autoplay & default return autoplay
+        if( !this.hovered ) this.initAutoPlay(); // if hover is false return autoplay & default return autoplay
     };
 
     function elementIndex(element) {
