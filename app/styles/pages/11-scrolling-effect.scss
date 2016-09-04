@@ -102,6 +102,13 @@ ul, ol {
     position: relative;
     height: 100vh;
     text-align: center;
+
+    // if animation-section has class fixed -> update position of section-content
+    &.fixed {
+        .section-content {
+            @extend .fixed;
+        }
+    }
 }
 
 // # Section Content
@@ -115,10 +122,6 @@ ul, ol {
     background-color: black;
     backface-visibility: hidden;
     transform: translateZ(0);
-
-    &.fixed {
-        @extend .fixed;
-    }
 }
 
 /*------------------------------------*\

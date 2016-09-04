@@ -1,2 +1,2 @@
-# Playing with plainJS and BEM/OOCSS/ITCSS architecture
+### Learning PlainJs & Jquery
 
