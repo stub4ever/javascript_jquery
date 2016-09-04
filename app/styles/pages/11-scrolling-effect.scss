@@ -1,0 +1,138 @@
+/*------------------------------------*\
+
+    # 11 Scrolling effect
+
+*------------------------------------*/
+
+/*------------------------------------*\
+    #Setting
+*------------------------------------*/
+
+// # Breakpoints
+
+    // Typography
+    $fontSizeBp-md: new-breakpoint(min-width 700px 6);
+
+/*------------------------------------*\
+    #Base
+*------------------------------------*/
+
+ul, ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*------------------------------------*\
+    #Tools
+*------------------------------------*/
+
+// #Mixins
+
+@mixin flex-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+// # Animation
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*------------------------------------*\
+    # Helpers
+*------------------------------------*/
+
+// # helpers
+
+    // image
+    .image__background {
+        background: no-repeat center center;
+        background-size: cover;
+    }
+
+    // fixed
+    .fixed {
+        position: fixed;
+    }
+
+
+/*------------------------------------*\
+    # Components
+*------------------------------------*/
+
+// # Hero
+
+    .hero {}
+
+        .hero__tittle {
+            h1 {
+                color: white;
+                font-size: 3rem;
+                @include media($fontSizeBp-md){
+                    font-size: 5rem;
+                }
+            }
+            h2 {
+                color: white;
+                font-size: 2.5rem;
+                @include media($fontSizeBp-md){
+                    font-size: 4rem;
+                }
+            }
+        }
+
+
+
+/*------------------------------------*\
+    # Layouts
+*------------------------------------*/
+
+// # Animated Section
+
+.animated-section {
+    position: relative;
+    height: 100vh;
+    text-align: center;
+}
+
+// # Section Content
+.section-content {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100vh;
+    width: 100%;
+    display: table;
+    padding: 2em;
+    background-color: black;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+
+    &.fixed {
+        @extend .fixed;
+    }
+}
+
+/*------------------------------------*\
+    # Pages
+*------------------------------------*/
+
+// Home
+
+.section-content {
+    .hero__tittle {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+    }
+}
+
+
